@@ -1,4 +1,3 @@
 # poipoi_code
-ゴミ箱ポイポイのソースコード
 ソースコードを見るには基本的にAndroidStudioをインストールしてください。
 言語：JAVA
