@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">poipoi</string>
+    <string-array name="gomi_kind">
+        <item>可燃垃圾</item>
+        <item>不可燃垃圾</item>
+        <item>PET瓶</item>
+        <item>罐类</item>
+    </string-array>
+
+    <string-array name="setting_account_email">
+        <item>更改用户名称</item>
+        <item>重设密码</item>
+        <item>删除帐户</item>
+    </string-array>
+    <string-array name="setting_account_google">
+        <item>更改用户名称</item>
+        <item>删除帐户</item>
+    </string-array>
+    <string name="next">下一个</string>
+    <string name="back">背部</string>
+    <string name="skip">略过</string>
+    <string name="close">关闭</string>
+    <string name="notice_title">使用位置信息</string>
+    <string name="notice_mes">位置信息是用来显示你在地图上的位置。\n所有获取的位置信息，将在应用程序处理。\n所以位置信息不会发送到服务器等。\n您可以稍后从终端设置更改访问权限。</string>
+    <string name="mes_add">指定点</string>
+    <string name="mes_page1">可以丢弃的垃圾的类型</string>
+    <string name="mes_page2">垃圾桶的地方可以</string>
+    <string name="mes_page3">任何人都可以使用它?</string>
+    <string name="mes_page4">为什么不能被每个人使用？</string>
+    <string name="error_page1">请选择</string>
+    <string name="hint_page2">示例：建筑物的3层</string>
+    <string name="hint_page3">选择 \"是\", 如果它在公园等\n选择“没有”，如果它在车站平台等</string>
+    <string name="hint_page4">示例：因为只有设施的用户可以使用它</string>
+    <string name="mes_success">它已发送</string>
+    <string name="mes_failed">发送失败</string>
+    <string name="str_button">重试</string>
+    <string name="info_failed">错误：无法获取信息</string>
+    <string name="loading">载入中</string>
+    <string name="rb_all">全部</string>
+    <string name="rb_select">选择</string>
+    <string name="yes">是</string>
+    <string name="no">没有</string>
+    <string name="use">任何人都可以使用它</string>
+    <string name="nouse">有可能不能使用它</string>
+    <string name="nouse_mes">可用目标有限</string>
+    <string name="filter_mes">要显示的项目</string>
+    <string name="title_mes">ゴミ箱情報共有コミュニティアプリケーション</string>
+    <string name="use_account">アカウントを使用して開始</string>
+    <string name="non_use_account">アカウントを使用せずに開始</string>
+    <string name="non_use_account_hint">※一部の機能は使用できません</string>
+    <string name="use_account_button">新規登録・ログイン</string>
+    <string name="non_use_account_button">登録せずに開始</string>
+
+    <string name="fui_default_toolbar_title">@string/app_name</string>
+    <string name="fui_progress_dialog_loading" translation_description="Loading text in dialog">Loading…</string>
+    <string name="fui_sign_in_default" translation_description="Button text to sign in">Sign in</string>
+    <string name="fui_general_error" translation_description="Toast text flashing general error">An error has occurred.</string>
+
+    <!-- Provider -->
+    <string name="fui_idp_name_google">Google</string>
+    <string name="fui_idp_name_facebook">Facebook</string>
+    <string name="fui_idp_name_twitter">Twitter</string>
+    <string name="fui_provider_name_email">Email</string>
+    <string name="fui_provider_name_phone">Phone</string>
+
+    <!-- Auth method picker -->
+    <string name="fui_sign_in_with_google" translation_description="Sign in button text">Sign in with Google</string>
+    <string name="fui_sign_in_with_facebook" translation_description="Sign in button text">Sign in with Facebook</string>
+    <string name="fui_sign_in_with_twitter" translation_description="Sign in button text">Sign in with Twitter</string>
+    <string name="fui_sign_in_with_email" translation_description="Sign in button text">Sign in with email</string>
+    <string name="fui_sign_in_with_phone" translation_description="Sign in button text">Sign in with phone</string>
+
+    <!-- Email common-->
+    <string name="fui_next_default" translation_description="Button text to continue">Next</string>
+    <string name="fui_email_hint" translation_description="Hint in email input field">Email</string>
+    <string name="fui_phone_hint" translation_description="Hint for phone input field">Phone Number</string>
+    <string name="fui_password_hint" translation_description="Hint for password input field">Password</string>
+    <string name="fui_required_field" translation_description="Inline error for required field">You can\'t leave this empty.</string>
+    <string name="fui_invalid_email_address" translation_description="Inline error for invalid email address">That email address isn\'t correct</string>
+    <string name="fui_missing_email_address" translation_description="Inline error for empty email address in input field">Enter your email address to continue</string>
+    <string name="fui_progress_dialog_checking_accounts" translation_description="Progress dialog text while checking for existing accounts">Checking for existing accounts…</string>
+
+    <!-- Email sign up -->
+    <string name="fui_title_register_email" translation_description="Title for signup form">Sign up</string>
+    <string name="fui_name_hint" translation_description="Hint for last name input field">First &amp; last name</string>
+    <string name="fui_button_text_save" translation_description="Button text to save input form">Save</string>
+    <string name="fui_progress_dialog_signing_up" translation_description="Dialog text while waiting for server's signup response">Signing up…</string>
+    <plurals name="fui_error_weak_password" translation_description="Inline error for weak password">
+        <item quantity="one" translation_description="Inline error for weak password">Password not strong enough. Use at least %1$d character and a mix of letters and numbers</item>
+        <item quantity="other" translation_description="Inline error for weak password">Password not strong enough. Use at least %1$d characters and a mix of letters and numbers</item>
+    </plurals>
+    <string name="fui_email_account_creation_error" translation_description="Inline error for signup failure">Email account registration unsuccessful</string>
+    <string name="fui_error_user_collision" translation_description="Inline error when user signs up using an existing email account">An account already exists with that email address.</string>
+    <string name="fui_create_account_preamble_tos_and_pp" translation_description="Text shown when creating an account with both terms of service and privacy policy.">By tapping <xliff:g example="SAVE" id="btn" translation_description="">%1$s</xliff:g> you are indicating that you agree to the <xliff:g example="https://google.com/terms" id="tos" translation_description="">%2$s</xliff:g> and the <xliff:g example="https://google.com/privacy" id="pp" translation_description="">%3$s</xliff:g>.</string>
+    <string name="fui_create_account_preamble_tos_only" translation_description="Text shown when creating an account with only terms of service">By tapping <xliff:g example="SAVE" id="btn" translation_description="">%1$s</xliff:g> you are indicating that you agree to the <xliff:g example="https://google.com/terms" id="tos" translation_description="">%2$s</xliff:g>.</string>
+    <string name="fui_create_account_preamble_pp_only" translation_description="Text shown when creating an account with only privacy policy">By tapping <xliff:g example="SAVE" id="btn" translation_description="">%1$s</xliff:g> you are indicating that you agree to the <xliff:g example="https://google.com/privacy" id="pp" translation_description="">%2$s</xliff:g>.</string>
+    <string name="fui_terms_of_service" translation_description="Link text to web url containing the app's terms of service">Terms of Service</string>
+    <string name="fui_privacy_policy" translation_description="Link text to web url containing the app's privacy policy">Privacy Policy</string>
+
+    <!-- Idp/Email welcome back -->
+    <string name="fui_title_welcome_back_idp_prompt">@string/fui_sign_in_default</string>
+    <string name="fui_title_welcome_back_password_prompt">@string/fui_sign_in_default</string>
+    <string name="fui_welcome_back_idp_header" translation_description="Inline subtitle to users whose signup was interrupted since an existing account was detected">You already have an account</string>
+    <string name="fui_welcome_back_email_header" translation_description="Message for returning users">Welcome back!</string>
+    <string name="fui_welcome_back_idp_prompt" translation_description="Message to users that need to signin using existing IDP accounts">
+        You\'ve already used <xliff:g example="jane.doe@example.com" id="email_addr" translation_description="">%1$s</xliff:g>.
+        Sign in with <xliff:g example="Google" id="provider_name" translation_description="">%2$s</xliff:g> to continue.
+    </string>
+    <string name="fui_welcome_back_password_prompt_body" translation_description="Message to users that need to signin using existing email accounts">
+        You\'ve already used <xliff:g example="jane.doe@example.com" id="email_addr" translation_description="">%1$s</xliff:g>
+        to sign in. Enter your password for that account.
+    </string>
+    <string name="fui_progress_dialog_signing_in" translation_description="Progress dialog text">Signing in…</string>
+    <string name="fui_trouble_signing_in" translation_description="Link leading to forgot password flow">Trouble signing in?</string>
+
+    <!-- Password recovery -->
+    <string name="fui_title_recover_password_activity" translation_description="Recover password screen title">Recover password</string>
+    <string name="fui_title_confirm_recover_password" translation_description="Password recovery confirmation message">Check your email</string>
+    <string name="fui_password_recovery_body" translation_description="Password recovery message body">Get instructions sent to this email that explain how to
+        reset your password.</string>
+    <string name="fui_button_text_send" translation_description="Button text to send recovery email">Send</string>
+    <string name="fui_confirm_recovery_body" translation_description="Alert dialog displayed after password recovery email is sent">Follow the instructions sent to %1$s to recover your password.</string>
+    <string name="fui_progress_dialog_sending" translation_description="Progress dialog while password recovery email is being sent">Sending…</string>
+    <string name="fui_error_email_does_not_exist" translation_description="Inline error when user attempt signin with invalid account">That email address doesn\'t match an existing account</string>
+
+    <!-- accessibility -->
+    <string name="fui_accessibility_logo" translation_description="Content description for app logo">App logo</string>
+    <string name="fui_signed_in_with_specific_account" translation_description="Post signin message showing method of authentication">Signed in as <xliff:g example="jane.doe@example.com" id="email_addr" translation_description="">%1$s</xliff:g></string>
+
+    <!-- phone number auth -->
+    <string name="fui_verify_phone_number_title" translation_description="Phone number entry form title">Enter your phone number</string>
+    <string name="fui_invalid_phone_number" translation_description="Inline error when phone number entered is invalid">Enter a valid phone number</string>
+    <string name="fui_enter_confirmation_code" translation_description="Phone number verification code entry form title">Enter the 6-digit code we sent to</string>
+    <string name="fui_resend_code_in" translation_description="Countdown timer text that the user needs to wait for before attempting to resend verification sms">Resend code in 0:%02d</string>
+    <string name="fui_verify_your_phone_title" translation_description="Button text to complete phone number verification">Verify your phone number</string>
+    <string name="fui_verifying" translation_description="Progress dialog text while phone number is being verified">Verifying…</string>
+    <string name="fui_retrieving_sms" translation_description="Progress dialog text when sms is being retrieved before auto-submit">Retrieving sms…</string>
+    <string name="fui_incorrect_code_dialog_body" translation_description="Inline error when incorrect sms verification code is being used to verify">Wrong code. Try again.</string>
+    <string name="fui_incorrect_code_dialog_positive_button_text" translation_description="Text to dismiss error alert dialog">OK</string>
+    <string name="fui_error_too_many_attempts" translation_description="Error message when the phone number has been used too many times">This phone number has been used too many times</string>
+    <string name="fui_error_quota_exceeded" translation_description="Error message when the Firebase project's quota has been exceeded.">There was a problem verifying your phone number</string>
+    <string name="fui_error_session_expired" translation_description="Error message when SMS confirmation code has expired.">This code is no longer valid</string>
+    <string name="fui_sign_in_with_phone_number" translation_description="Label for phone number input form">Sign in with phone number</string>
+    <string name="fui_done" translation_description="Progress dialog success transition once sms is sent">Done</string>
+    <string name="fui_verified" translation_description="Progress dialog success transition when phone number was verified">Verified!</string>
+    <string name="fui_code_sent" translation_description="Progress dialog success transition once sms is sent">Code sent!</string>
+    <string name="fui_resending" translation_description="Progress dialog text when user clicks on resend sms">Resending…</string>
+    <string name="fui_resend_code" translation_description="Link text to resend verification sms">Resend Code</string>
+    <string name="fui_verify_phone_number" translation_description="Button text to submit confirmation code and complete phone verification">Verify Phone Number</string>
+    <string name="fui_continue_phone_login" translation_description="Button text to submit phone number and send sms">Continue</string>
+    <string name="fui_sms_terms_of_service" translation_description="Fine print warning displayed below Verify Phone Number button">By tapping “%1$s”, an SMS may be sent. Message &amp; data rates may apply.</string>
+</resources>

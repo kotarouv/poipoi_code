@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:text="@string/filter_mes" />
+
+    <RadioGroup
+        android:id="@+id/radiogroup_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_all" />
+
+        <RadioButton
+            android:id="@+id/rbSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_select" />
+    </RadioGroup>
+
+    <ListView
+        android:id="@+id/listview_filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+        android:choiceMode="multipleChoice"
+        android:entries="@array/gomi_kind"
+        android:visibility="gone" />
+</LinearLayout>

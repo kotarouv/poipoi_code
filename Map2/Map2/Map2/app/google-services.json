@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "78992433742",
+    "firebase_url": "https://poipoi-f0c17.firebaseio.com",
+    "project_id": "poipoi-f0c17",
+    "storage_bucket": "poipoi-f0c17.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78992433742:android:c0c9106727666b06",
+        "android_client_info": {
+          "package_name": "com.kota_app.poipoi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "78992433742-5vri1pfd90eo0gnq2bjnjds4o6jgbs0d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kota_app.poipoi",
+            "certificate_hash": "01bb8d91f917f3a0128ba092c6d403cf7e84aded"
+          }
+        },
+        {
+          "client_id": "78992433742-orju04l03v8kg0n2f53nmdmq5mo83b7k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUdF4M55iw-4QIainQ7RY7_9KmjMmfjXk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "78992433742-orju04l03v8kg0n2f53nmdmq5mo83b7k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:elevation="5dp"
+        android:minHeight="?attr/actionBarSize"
+        android:visibility="gone"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/adView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/search_card"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:visibility="visible"
+            app:layout_anchor="@+id/space3"
+            app:layout_anchorGravity="bottom|center_horizontal">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/button_login"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="2dp"
+                    android:onClick="loginClick"
+                    android:text="ログイン"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="36dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:onClick="userinfo_click"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    card_view:srcCompat="@drawable/ic_person_userinfo_24dp" />
+
+                <fragment
+                    android:id="@+id/place_autocomplete_fragment"
+                    android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_centerHorizontal="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/button_login"
+                    app:layout_constraintStart_toEndOf="@+id/imageButton2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <fragment
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cameraZoom="4.0"
+                tools:context="com.example.kota327.map.ScrollingActivity" />
+
+        </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:onClick="fabClick"
+            android:src="@drawable/ic_add_black_24dp"
+            android:visibility="invisible"
+            app:layout_anchor="@id/bottom_sheet"
+            app:layout_anchorGravity="right|top" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_margin="16dp"
+            android:onClick="fab_filterClick"
+            android:src="@drawable/ic_filter_list_black_24dp"
+            android:visibility="visible"
+            app:fabSize="auto"
+            app:layout_anchor="@id/space6"
+            app:layout_anchorGravity="top|right" />
+
+        <Space
+            android:id="@+id/space"
+            android:layout_width="56dp"
+            android:layout_height="65dp"
+            app:layout_anchor="@id/bottom_sheet"
+            app:layout_anchorGravity="right|top" />
+
+        <Space
+            android:id="@+id/space5"
+            android:layout_width="56dp"
+            android:layout_height="10dp"
+            app:layout_anchor="@id/bottom_sheet"
+            app:layout_anchorGravity="right|top" />
+
+        <Space
+            android:id="@+id/space6"
+            android:layout_width="56dp"
+            android:layout_height="10dp"
+            app:layout_anchor="@id/bottom_sheet_notice"
+            app:layout_anchorGravity="top|right" />
+
+        <android.support.v4.widget.Space
+            android:id="@+id/space4"
+            android:layout_width="56dp"
+            android:layout_height="75dp"
+            app:layout_anchor="@id/map"
+            app:layout_anchorGravity="right|bottom" />
+
+        <LinearLayout
+            android:id="@+id/bottom_sheet_notice"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:visibility="visible"
+            app:behavior_peekHeight="55dp"
+            app:layout_behavior="@string/bottom_sheet_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_gravity="center"
+                android:background="#E0E0E0"
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="0dp">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/textView23"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="アプリのすべての機能を使おう！"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/button10"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/button10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="ログイン"
+                        android:textColor="#FFF"
+                        android:theme="@style/Button_custom"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:onClick="SheetClick_notice"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/imageView15"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        card_view:srcCompat="@drawable/ic_keyboard_arrow_up_white_24dp" />
+
+                    <TextView
+                        android:id="@+id/textView24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:text="あなたの最新情報を表示"
+                        android:textSize="17dp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView15" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton5"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="70dp"
+                        android:layout_height="62dp"
+                        android:onClick="popupClick"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        card_view:srcCompat="@drawable/ic_menu_black_24dp" />
+
+                    <TextView
+                        android:id="@+id/textView_bottom_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="山本虎太郎"
+                        android:textColor="#000"
+                        android:textSize="16dp"
+                        android:visibility="invisible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageButton5"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView_bottom_contribution"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="1dp"
+                        android:text="投稿数：28"
+                        android:textColor="#000"
+                        android:visibility="invisible"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView24"
+                        app:layout_constraintStart_toEndOf="@+id/imageButton5"
+                        app:layout_constraintTop_toTopOf="@+id/textView24" />
+                </android.support.constraint.ConstraintLayout>
+            </LinearLayout>
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cardview_let"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:visibility="gone">
+
+                        <android.support.constraint.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/textView31"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="8dp"
+                                android:text="ゴミ箱の情報を投稿してみよう！"
+                                android:textColor="#000"
+                                android:textSize="17sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/textView32"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:layout_marginEnd="4dp"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="8dp"
+                                android:text="投稿するゴミ箱を見つけたら、地図上でゴミ箱がある場所を長押ししてゴミ箱の情報を投稿できます。"
+                                android:textColor="#000"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/textView31" />
+                        </android.support.constraint.ConstraintLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <LinearLayout
+                        android:id="@+id/linearlayout_user_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView25"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:text="最近の投稿"
+                            android:textColor="#000"
+                            android:textSize="20sp" />
+
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/recyclerview_lately"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </android.support.v7.widget.RecyclerView>
+
+                        <TextView
+                            android:id="@+id/textView27"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:text="よく見られている投稿"
+                            android:textColor="#000"
+                            android:textSize="20sp" />
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/recyclerview_popular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </android.support.v7.widget.RecyclerView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </android.support.v4.widget.NestedScrollView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_sheet_select"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:behavior_hideable="true"
+            app:behavior_peekHeight="70dp"
+            app:layout_behavior="@string/bottom_sheet_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:background="@color/colorPrimary"
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="0dp">
+
+                <Button
+                    android:id="@+id/button_combustibles"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_moeru_gray"
+                    android:onClick="select_Click"
+                    android:text="燃えるゴミ"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp" />
+
+                <Button
+                    android:id="@+id/button_incombustibles"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_moenai_gray"
+                    android:onClick="select_Click"
+                    android:text="燃えないゴミ"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp" />
+
+                <Button
+                    android:id="@+id/button_pet"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_pet_gray"
+                    android:onClick="select_Click"
+                    android:text="ペットボトル"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp" />
+
+                <Button
+                    android:id="@+id/button_can"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_can_gray"
+                    android:onClick="select_Click"
+                    android:text="カン"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/bottom_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:visibility="visible"
+            app:behavior_hideable="true"
+            app:behavior_peekHeight="125dp"
+            app:layout_behavior="@string/bottom_sheet_behavior">
+
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/select_head"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:background="@color/colorPrimary"
+                android:elevation="5dp"
+                android:onClick="SheetClick"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="0dp">
+
+                <ImageView
+                    android:id="@+id/imageView_incombustibles"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    app:layout_constraintLeft_toRightOf="@+id/imageView_combustibles"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_moenai" />
+
+                <ImageView
+                    android:id="@+id/imageView_combustibles"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_moeru" />
+
+                <ImageView
+                    android:id="@+id/imageView_pet"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="0dp"
+                    app:layout_constraintLeft_toRightOf="@+id/imageView_incombustibles"
+                    app:layout_constraintTop_toTopOf="@+id/imageView_incombustibles"
+                    card_view:srcCompat="@drawable/ic_pet" />
+
+                <ImageView
+                    android:id="@+id/imageView_can"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="0dp"
+                    app:layout_constraintLeft_toRightOf="@+id/imageView_pet"
+                    app:layout_constraintTop_toTopOf="@+id/imageView_pet"
+                    card_view:srcCompat="@drawable/ic_can" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView_combustibles"
+                    app:srcCompat="@drawable/ic_place_white_24dp" />
+
+                <ImageView
+                    android:id="@+id/imageView_notice"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView7"
+                    app:srcCompat="@drawable/ic_announcement_black_24dp" />
+
+                <TextView
+                    android:id="@+id/textView_place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="6dp"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintLeft_toRightOf="@+id/imageView7"
+                    app:layout_constraintTop_toTopOf="@+id/imageView7" />
+
+                <TextView
+                    android:id="@+id/textView_notice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="6dp"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"
+                    app:layout_constraintLeft_toRightOf="@+id/imageView_notice"
+                    app:layout_constraintTop_toTopOf="@+id/imageView_notice" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/add_head"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:background="@color/colorPrimary"
+                android:elevation="5dp"
+                android:onClick="SheetClick"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="0dp">
+
+                <Button
+                    android:id="@+id/button6"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginRight="3dp"
+                    android:onClick="closebuttonClick"
+                    android:text="@string/close"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="4dp"
+                    android:text="12.421421,130.2414"
+                    android:textColor="#EEEEEE"
+                    app:layout_constraintLeft_toRightOf="@+id/imageView8"
+                    app:layout_constraintTop_toTopOf="@+id/imageView8" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="22dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView12"
+                    app:srcCompat="@drawable/ic_place_white_24dp" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/mes_add"
+                    android:textColor="#FFFFFF"
+                    android:textSize="25sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/notice_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="0.95"
+                        android:visibility="visible"
+                        card_view:cardCornerRadius="4dp">
+
+                        <android.support.constraint.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/textView_public"
+                                android:layout_width="wrap_content"
+                                android:layout_height="21dp"
+                                android:layout_marginBottom="0dp"
+                                android:layout_marginLeft="0dp"
+                                android:layout_marginRight="0dp"
+                                android:layout_marginTop="0dp"
+                                android:text="@string/use"
+                                android:textColor="#000000"
+                                android:textSize="17sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintLeft_toRightOf="@+id/imageView5"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.509" />
+
+                            <TextView
+                                android:id="@+id/textView_reason"
+                                android:layout_width="240dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="0dp"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintLeft_toLeftOf="@+id/textView_limit"
+                                app:layout_constraintTop_toBottomOf="@+id/textView_limit" />
+
+                            <ImageView
+                                android:id="@+id/imageView5"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginBottom="8dp"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                card_view:srcCompat="@drawable/ic_icon_human" />
+
+                            <TextView
+                                android:id="@+id/textView_limit"
+                                android:layout_width="255dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="6dp"
+                                android:layout_marginRight="0dp"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/nouse_mes"
+                                android:textColor="#000000"
+                                android:textSize="17sp"
+                                app:layout_constraintHorizontal_bias="0.2"
+                                app:layout_constraintLeft_toRightOf="@+id/imageView5"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </android.support.constraint.ConstraintLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="0.95"
+                        android:visibility="visible"
+                        card_view:cardCornerRadius="4dp">
+
+                        <android.support.constraint.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/textView_update_name"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginTop="8dp"
+                                android:text="わたし"
+                                android:textColor="#000000"
+                                android:textSize="17sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="@+id/textView19"
+                                app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+                            <ImageView
+                                android:id="@+id/imageView6"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginBottom="8dp"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                card_view:srcCompat="@drawable/ic_person_black_24dp" />
+
+                            <TextView
+                                android:id="@+id/textView19"
+                                android:layout_width="255dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="6dp"
+                                android:text="投稿者"
+                                android:textSize="13sp"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintLeft_toRightOf="@+id/imageView6"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </android.support.constraint.ConstraintLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="0.95"
+                        android:visibility="gone"
+                        card_view:cardCornerRadius="4dp">
+
+                        <android.support.constraint.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <android.support.constraint.ConstraintLayout
+                                android:id="@+id/linearLayout"
+                                android:layout_width="0dp"
+                                android:layout_height="85dp"
+                                android:background="@color/colorPrimary"
+                                android:orientation="vertical"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <TextView
+                                    android:id="@+id/textView13"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="8dp"
+                                    android:layout_marginTop="8dp"
+                                    android:text="修正が必要ですか?"
+                                    android:textColor="#FFF"
+                                    android:textSize="21sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+                                <ImageView
+                                    android:id="@+id/imageView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="55dp"
+                                    android:layout_gravity="center_vertical|center_horizontal"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.0"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    card_view:srcCompat="@drawable/ic_edit_black_24dp" />
+                            </android.support.constraint.ConstraintLayout>
+
+                            <Button
+                                android:id="@+id/button9"
+                                style="?android:attr/borderlessButtonStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="16dp"
+                                android:layout_marginTop="8dp"
+                                android:text="情報を修正する"
+                                android:textColor="@color/colorPrimary"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+                            <TextView
+                                android:id="@+id/textView16"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center"
+                                android:text="ゴミ箱の位置や捨てることのできるゴミの種類が実際違っていた場合、情報の正確性を高めるために修正にご協力ください。"
+                                android:textSize="15sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+                        </android.support.constraint.ConstraintLayout>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+            </android.support.v4.widget.NestedScrollView>
+        </LinearLayout>
+
+        <Space
+            android:id="@+id/space2"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="left|right"
+            android:elevation="10dp"
+            android:onClick="searchbuttonClick"
+            android:theme="@style/Button_search"
+            android:visibility="gone"
+            app:layout_anchor="@+id/space2"
+            app:layout_anchorGravity="bottom|right"
+            card_view:srcCompat="@drawable/places_ic_search" />
+
+
+        <Space
+            android:id="@+id/space3"
+            android:layout_width="wrap_content"
+            android:layout_height="11dp"
+            android:layout_gravity="bottom|right"
+            app:layout_anchor="@+id/linearLayout2"
+            app:layout_anchorGravity="top|center" />
+
+
+    </android.support.design.widget.CoordinatorLayout>
+</android.support.constraint.ConstraintLayout>
