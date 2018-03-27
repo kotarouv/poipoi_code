@@ -900,6 +900,10 @@ public class ScrollingActivity extends AppCompatActivity implements OnMapReadyCa
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
             return;
         }
+        if(client==null||!client.isConnected()){
+            //onConnected()呼ばれてから今までの間にもし接続が切断されてたら何もしない
+            return;
+        }
         //位置情報の監視を開始
         api.requestLocationUpdates(client, request, this);
     }
