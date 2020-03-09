@@ -4,6 +4,7 @@ import android.Manifest;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -140,6 +141,11 @@ public class ScrollingActivity extends AppCompatActivity implements OnMapReadyCa
     private ClusterManager<MyItem> mClusterManager;
 
 
+    //permission取得済みフラグ
+    private boolean isPermissionGranted=false;
+    //map準備済みフラグ
+    private boolean isMapReadied=false;
+
 
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -150,6 +156,11 @@ public class ScrollingActivity extends AppCompatActivity implements OnMapReadyCa
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(ScrollingActivity.this,
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_PERMISSION);
+        }else {
+            //permission取得済みフラグをonに
+            isPermissionGranted=true;
+            //もしmapの準備も完了していたら現在地表示onにする
+            setMyLocationEnabled();
         }
 
         setContentView(R.layout.activity_scrolling);
@@ -651,7 +662,10 @@ public class ScrollingActivity extends AppCompatActivity implements OnMapReadyCa
             Toast.makeText(getApplicationContext(), "位置情報の取得が不可能です", Toast.LENGTH_LONG).show();
             return;
         }
-        mMap.setMyLocationEnabled(true);
+        //mapの準備終了のフラグを立てる
+        isMapReadied=true;
+        //permisssionも得えられていたら現在地表示onにする
+        setMyLocationEnabled();
     }
 
     public void SheetClick(View view){
@@ -795,7 +809,10 @@ public class ScrollingActivity extends AppCompatActivity implements OnMapReadyCa
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     return;
                 }
-                mMap.setMyLocationEnabled(true);
+                //permission取得済みフラグonに
+                isPermissionGranted=true;
+                //mapの準備も終わっていたら現在地表示onに
+                setMyLocationEnabled();
                 getLocation();
                 return;
 
@@ -881,6 +898,10 @@ public class ScrollingActivity extends AppCompatActivity implements OnMapReadyCa
     public void onConnected(Bundle bundle){
         // ACCESS_FINE_LOCATIONへのパーミッションを確認
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+            return;
+        }
+        if(client==null||!client.isConnected()){
+            //onConnected()呼ばれてから今までの間にもし接続が切断されてたら何もしない
             return;
         }
         //位置情報の監視を開始
@@ -1147,6 +1168,19 @@ public class ScrollingActivity extends AppCompatActivity implements OnMapReadyCa
         finish();
         return true;
     }
+    }
+
+    /**
+     * mapが取得できていて、パーミッションもあるときのみ現在地表示をonにする。
+     *
+     * メゾッド内でフラグisPermissionGrantedを用いてパーミッションの有無を実質調べているので@SuppressLint("MissingPermission")
+     * でGoogleMap#setMyLocationEnabled(boolean)に関するAdd permission warningを消している
+     */
+    @SuppressLint("MissingPermission")
+    private void setMyLocationEnabled(){
+        if(isPermissionGranted&&isMapReadied){
+            mMap.setMyLocationEnabled(true);
+        }
     }
 
 }
